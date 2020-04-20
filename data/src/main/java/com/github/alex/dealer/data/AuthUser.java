@@ -7,6 +7,9 @@ public class AuthUser {
     private String userId;
     private Long id;
 
+    public AuthUser(String login, String password, Role administrator, Object o) {
+    }
+
     public Long getId() {
         return id;
     }

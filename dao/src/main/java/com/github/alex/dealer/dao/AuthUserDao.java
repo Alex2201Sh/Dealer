@@ -6,4 +6,6 @@ public interface AuthUserDao {
     AuthUser getByLogin(String login);
 
     long saveAuthUser(AuthUser user);
+
+    short checkExistUser(String login);
 }

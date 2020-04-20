@@ -6,8 +6,11 @@ import com.github.alex.dealer.data.AuthUser;
 import com.github.alex.dealer.data.Role;
 
 import java.sql.*;
+import java.util.HashMap;
 
 public class DefaultAuthUserDao implements AuthUserDao {
+
+    public HashMap<String, AuthUser> userByLogin;
 
     private static class SingletonHolder {
         static final AuthUserDao HOLDER_INSTANCE = new DefaultAuthUserDao();
@@ -55,5 +58,10 @@ public class DefaultAuthUserDao implements AuthUserDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public short checkExistUser(String login) {
+        return 0;
     }
 }

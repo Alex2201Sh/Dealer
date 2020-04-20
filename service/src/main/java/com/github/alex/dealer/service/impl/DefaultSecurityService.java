@@ -4,6 +4,7 @@ package com.github.alex.dealer.service.impl;
 import com.github.alex.dealer.dao.AuthUserDao;
 import com.github.alex.dealer.dao.impl.DefaultAuthUserDao;
 import com.github.alex.dealer.data.AuthUser;
+import com.github.alex.dealer.data.Role;
 import com.github.alex.dealer.service.SecurityService;
 
 public class DefaultSecurityService implements SecurityService {
@@ -44,10 +45,10 @@ public class DefaultSecurityService implements SecurityService {
         return flag;
     }
 
-//    public static void createUser(String login, String password){
-//        if (checkAlreadyExistsUser(login) == false) {
-//            DefaultAuthUserDao defaultAuthUserDao = new DefaultAuthUserDao();
-//            defaultAuthUserDao.userByLogin.putIfAbsent(login, new AuthUser(login, password, Role.STUDENT, null));
-//        }
-//    }
+    public static void createUser(String login, String password){
+        if (checkAlreadyExistsUser(login) == false) {
+            DefaultAuthUserDao defaultAuthUserDao = new DefaultAuthUserDao();
+            defaultAuthUserDao.userByLogin.putIfAbsent(login, new AuthUser(login, password, Role.ADMINISTRATOR, null));
+        }
+    }
 }
