@@ -13,6 +13,6 @@ import java.io.IOException;
 public class Administrator extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        WebUtils.redirect("/table", request, response);
+        WebUtils.redirect("/administrator", request, response);
     }
 }

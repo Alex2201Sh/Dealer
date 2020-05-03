@@ -33,7 +33,7 @@ public class DefaultAuthUserDaoTest {
     public void checkExistUser() {
         String login = "testUser";
         String pass = "testPass";
-        authUserDao.saveAuthUser(new AuthUser(null, login, pass, Role.BLOCKED, null));
+        authUserDao.saveAuthUser(new AuthUser(null, login, pass, Role.EMPLOYEE, null));
         Assertions.assertEquals(authUserDao.checkExistUser(login), 1);
     }
 

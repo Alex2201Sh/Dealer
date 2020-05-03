@@ -16,7 +16,7 @@ public class DefaultUserDaoTest {
         UserDao userDao = new DefaultUserDao();
         userDao.save(user1);
         Assert.assertEquals("Евгений", user1.getFirstName());
-        //todo сделать с MOCK
+        //todo Запилить тест
 
 
     }

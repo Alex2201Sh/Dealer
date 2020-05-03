@@ -1,7 +1,7 @@
-drop schema if exists dealer;
-create schema dealer;
+drop schema if exists dealer_test;
+create schema dealer_test;
 
-use dealer;
+use dealer_test;
 
 create table user
 (

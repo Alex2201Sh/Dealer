@@ -20,7 +20,7 @@ public class Car {
         return model;
     }
 
-    public String getRegNumber() {
+    public String getVinNumber() {
         return vinNumber;
     }
 

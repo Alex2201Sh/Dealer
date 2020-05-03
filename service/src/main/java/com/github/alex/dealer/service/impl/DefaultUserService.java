@@ -40,7 +40,6 @@ public class DefaultUserService implements UserService {
 
     @Override
     public User saveAuthUser(User authUser) {
-
         return authUser;
     }
 

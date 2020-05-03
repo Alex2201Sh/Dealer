@@ -24,7 +24,6 @@ public class DataSource {
         pool.setJdbcUrl(url);
         pool.setUser(user);
         pool.setPassword(pass);
-
         pool.setMinPoolSize(5);
         pool.setAcquireIncrement(5);
         pool.setMaxPoolSize(10);

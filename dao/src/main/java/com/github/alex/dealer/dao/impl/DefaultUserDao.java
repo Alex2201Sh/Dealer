@@ -27,9 +27,9 @@ public class DefaultUserDao implements UserDao {
             while(resultSet.next()){
                 final User user = new User(
                         resultSet.getLong("id"),
-                        resultSet.getString("firstName"),
-                        resultSet.getString("lastName"),
-                        resultSet.getString("phoneNumber")
+                        resultSet.getString("first_name"),
+                        resultSet.getString("last_name"),
+                        resultSet.getString("phone")
                 );
                 result.add(user);
             }
@@ -41,7 +41,7 @@ public class DefaultUserDao implements UserDao {
 
     @Override
     public Long save(User user) {
-        String sql = "insert into user(first_name, last_name, phone, email) values(?,?,?,?)";
+        String sql = "insert into user(first_name, last_name, phone) values(?,?,?,?)";
         try (Connection connection = DataSource.getInstance().getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)){
             preparedStatement.setString(1, user.getFirstName());

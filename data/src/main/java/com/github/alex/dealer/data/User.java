@@ -2,23 +2,23 @@ package com.github.alex.dealer.data;
 
 public class User {
     private Long id;
-    private String firstName;
-    private String lastName;
-    private String phoneNumber;
+    private String first_name;
+    private String last_name;
+    private String phone;
 
-    public User(Long id, String firstName, String lastName, String phoneNumber) {
+    public User(Long id, String first_name, String last_name, String phoneNumber) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.phone = phoneNumber;
     }
 
     public String getFirstName() {
-        return firstName;
+        return first_name;
     }
 
     public String getLastName() {
-        return lastName;
+        return last_name;
     }
 
     public Long getId() {
@@ -26,7 +26,7 @@ public class User {
     }
 
     public String getPhoneNumber() {
-        return phoneNumber;
+        return phone;
     }
 
 }

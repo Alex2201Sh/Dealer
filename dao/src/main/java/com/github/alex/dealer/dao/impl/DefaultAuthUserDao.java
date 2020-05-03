@@ -6,11 +6,8 @@ import com.github.alex.dealer.data.AuthUser;
 import com.github.alex.dealer.data.Role;
 
 import java.sql.*;
-import java.util.HashMap;
 
 public class DefaultAuthUserDao implements AuthUserDao {
-
-    public HashMap<String, AuthUser> userByLogin;
 
     private static class SingletonHolder {
         static final AuthUserDao HOLDER_INSTANCE = new DefaultAuthUserDao();
@@ -32,7 +29,7 @@ public class DefaultAuthUserDao implements AuthUserDao {
                             resultSet.getString("login"),
                             resultSet.getString("password"),
                             Role.valueOf(resultSet.getString("role")),
-                            resultSet.getString("user_id"));
+                            resultSet.getLong("user_id"));
                 } else {
                     return null;
                 }
@@ -50,7 +47,7 @@ public class DefaultAuthUserDao implements AuthUserDao {
             ps.setString(1, user.getLogin());
             ps.setString(2, user.getPassword());
             ps.setString(3, user.getRole().name());
-            ps.setString(4, user.getUserId());
+            ps.setLong(4, user.getUserId());
             ps.executeUpdate();
             try (ResultSet generatedKeys = ps.getGeneratedKeys()) {
                 return generatedKeys.getLong(1);
@@ -62,6 +59,8 @@ public class DefaultAuthUserDao implements AuthUserDao {
 
     @Override
     public short checkExistUser(String login) {
-        return 0;
+        if (!getByLogin(login).getLogin().equals(null)) {
+            return 1;
+        } else return 0;
     }
 }
